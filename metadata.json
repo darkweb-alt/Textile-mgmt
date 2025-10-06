@@ -1,0 +1,5 @@
+{
+  "name": "Textile Management System",
+  "description": "A web application to manage customers and products for a textile business, featuring full CRUD (Create, Read, Update, Delete) functionality with data persistence in the browser.",
+  "requestFramePermissions": []
+}
