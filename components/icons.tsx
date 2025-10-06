@@ -24,3 +24,15 @@ export const CloseIcon: React.FC<{ className?: string }> = ({ className }) => (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
     </svg>
 );
+
+export const LogoutIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+    </svg>
+);
+
+export const TextileIcon: React.FC<{ className?: string }> = ({ className }) => (
+    <svg xmlns="http://www.w3.org/2000/svg" className={className} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M6.414 15.586L5 17l-1.414-1.414L5 14.172l1.414 1.414zM12 2l-2.828 2.828L12 7.657l2.828-2.829L12 2zm5.586 13.586L19 17l1.414-1.414L19 14.172l-1.414 1.414zM9.172 9.172L6.343 12l2.829 2.828L12 12l-2.828-2.828zM12 12l2.828 2.828L17.657 12l-2.829-2.828L12 12zM5 5l1.414-1.414L7.828 5 6.414 6.414 5 5zm14 0l-1.414 1.414L16.172 5l1.414-1.414L19 5zM5 19l1.414 1.414L7.828 19l-1.414-1.414L5 19zm14 0l-1.414-1.414L16.172 19l1.414 1.414L19 19z"/>
+    </svg>
+);

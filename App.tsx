@@ -2,11 +2,26 @@
 import React, { useState } from 'react';
 import CustomerManager from './components/CustomerManager';
 import ProductManager from './components/ProductManager';
+import LoginPage from './components/LoginPage';
+import { LogoutIcon } from './components/icons';
 
 type View = 'customers' | 'products';
 
 const App: React.FC = () => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [view, setView] = useState<View>('customers');
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+  };
+
+  if (!isAuthenticated) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
 
   const NavButton: React.FC<{ currentView: View; targetView: View; setView: (view: View) => void; children: React.ReactNode }> = ({ currentView, targetView, setView, children }) => (
     <button
@@ -29,10 +44,20 @@ const App: React.FC = () => {
             <h1 className="text-2xl font-bold text-primary-600 dark:text-primary-400">
               Textile ERP
             </h1>
-            <nav className="flex items-center space-x-2 p-1 bg-gray-200 dark:bg-slate-900 rounded-lg">
-              <NavButton currentView={view} targetView="customers" setView={setView}>Customers</NavButton>
-              <NavButton currentView={view} targetView="products" setView={setView}>Products</NavButton>
-            </nav>
+            <div className="flex items-center space-x-4">
+              <nav className="flex items-center space-x-2 p-1 bg-gray-200 dark:bg-slate-900 rounded-lg">
+                <NavButton currentView={view} targetView="customers" setView={setView}>Customers</NavButton>
+                <NavButton currentView={view} targetView="products" setView={setView}>Products</NavButton>
+              </nav>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 text-gray-600 dark:text-gray-300 hover:bg-red-100 dark:hover:bg-slate-700/50 p-2 rounded-md transition-colors"
+                aria-label="Logout"
+              >
+                <LogoutIcon className="w-5 h-5 text-red-500" />
+                <span className="text-sm font-medium hidden sm:inline">Logout</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
